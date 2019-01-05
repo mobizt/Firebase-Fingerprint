@@ -1,14 +1,14 @@
 @echo off
 setlocal enabledelayedexpansion
 set h="test.firebaseio.com"
-set op="C:\Program Files (x86)\GnuWin32\bin"
+set op="C:\Program Files\GnuWin32\bin"
 set cf=%USERPROFILE%\f.cert
 set of=%USERPROFILE%\o.txt
 set t1=STEP 1: ACQUIRE CERTIFICATE...
 set t2=STEP 2: FINISHED
-set t3=Openssl tool doesn't exist
+set t3=Openssl tool doesn't exist  
 set t4=No internet connection
-set emsg1=Please install openssl tool first.
+set emsg1=Please install openssl tool at %op%.
 set emsg2=Unable to access to Firebase server.
 set emsg3=Please check your internet connection.
 if not exist %op%/openssl.exe goto :f_error
