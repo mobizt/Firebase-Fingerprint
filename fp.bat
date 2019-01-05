@@ -1,7 +1,15 @@
 @echo off
 setlocal enabledelayedexpansion
+for /f "tokens=1-2 skip=1 delims=^." %%a in ('@wmic os get osarchitecture') do (
+	if not "%%a"=="" (
+		set  "os_ar=%%a"		
+		goto :begin
+	)
+)
+:begin
+if %os_ar%==64-bit set op="C:\Program Files (x86)\GnuWin32\bin"
+if %os_ar%==32-bit set op="C:\Program Files\GnuWin32\bin"
 set h="test.firebaseio.com"
-set op="C:\Program Files\GnuWin32\bin"
 set cf=%USERPROFILE%\f.cert
 set of=%USERPROFILE%\o.txt
 set t1=STEP 1: ACQUIRE CERTIFICATE...
@@ -72,7 +80,3 @@ cls
 echo %emsg2%
 echo %emsg3%
 pause >nul
-
-
-
-
